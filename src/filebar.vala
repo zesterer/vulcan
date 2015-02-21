@@ -9,6 +9,7 @@ namespace EvolveJournal
 		public Gtk.Button new_button;
 		public Gtk.Button open_button;
 		public Gtk.Button save_button;
+		public Gtk.Button saveas_button;
 		public Gtk.Button sidebar_button;
 		
 		public FileBar(Window mother)
@@ -41,6 +42,12 @@ namespace EvolveJournal
 			this.save_button.set_tooltip_text("Save the current file");
 			this.save_button.set_image(new Gtk.Image.from_icon_name("document-save-symbolic", Gtk.IconSize.MENU));
 			this.add(this.save_button);
+			
+			this.saveas_button = new Gtk.Button();
+			this.saveas_button.set_relief(Gtk.ReliefStyle.NONE);
+			this.saveas_button.set_tooltip_text("Save the current file as a different file");
+			this.saveas_button.set_image(new Gtk.Image.from_icon_name("document-save-as-symbolic", Gtk.IconSize.MENU));
+			this.add(this.saveas_button);
 			
 			Gtk.Box spacer = new Gtk.Box(Gtk.Orientation.VERTICAL, 0);
 			spacer.set_vexpand(true);

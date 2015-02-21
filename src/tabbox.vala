@@ -25,6 +25,7 @@ namespace EvolveJournal
 			
 			this.scrolled_window = new Gtk.ScrolledWindow(null, null);
 			this.scrolled_window.set_hexpand(true);
+			this.scrolled_window.set_kinetic_scrolling(true);
 			this.scrolled_window.set_policy(Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.AUTOMATIC);
 			this.add(this.scrolled_window);
 			

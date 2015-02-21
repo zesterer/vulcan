@@ -23,7 +23,7 @@ namespace EvolveJournal
 	
 		public void output(string message, string type = "debug")
 		{
-			if ((debug && type == "debug") || type != "debug")
+			if ((bool.parse(this.application.config.getProperty("debug")) && type == "debug") || type != "debug")
 				stdout.printf("[" + type.up() + "] " + message + "\n");
 		}
 	}

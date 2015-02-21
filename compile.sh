@@ -7,7 +7,6 @@ valac -o $NAME -X -lm \
 --pkg gtksourceview-3.0 \
 --pkg pango \
 --pkg vte-2.90 \
--X -fsanitize=address \
 src/main.vala \
 src/window.vala \
 src/headerbar.vala \
@@ -21,3 +20,5 @@ src/settingsbar.vala \
 src/terminal.vala \
 src/sidebarlist.vala \
 src/config.vala \
+#-X -fsanitize=address \
+#Uncomment the line below to allow debugging
