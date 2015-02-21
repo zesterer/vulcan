@@ -1,4 +1,4 @@
-# PLEASE NOTE: JOURNALPLUS IS CURRENTLY IN HEAVY DEVELOPMENT AND DOES NOT FUNCTION PROPERLY YET
+## Please Note: Journalplus Is Currently In Heavy Development And Does Not Function Properly Yet
 
 # JournalNext
 
