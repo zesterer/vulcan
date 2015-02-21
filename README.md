@@ -1,3 +1,5 @@
+# PLEASE NOTE: JOURNALPLUS IS CURRENTLY IN HEAVY DEVELOPMENT AND DOES NOT FUNCTION PROPERLY YET
+
 # JournalNext
 
 A minimalistic text editor designed for both ordinary use and software development.
