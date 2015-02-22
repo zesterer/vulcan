@@ -8,17 +8,17 @@ A minimalistic text editor designed for both ordinary use and software developme
 
 ##What is JournalNext?
 
-JournalNext is the next incarnation of the Journal text editor (version 1.0 seen here: http://www.github.com/evolve-os/journal/). It aims to be fast, and minimalist on first use, and provides the following basic features:
+JournalNext is the next incarnation of the Journal text editor (version 1.0 seen here: http://www.github.com/evolve-os/journal/). It aims to be fast, minimalist on first use, and provides the following basic features:
 
 - Multi-file editing
 - Monospace text editing
 - Saving (including Save As) and loading
 - Basic theming
 
-However, it also aims to provide a range of tools helpful to developers including:
+However, in addition it also aims to provide a range of tools helpful to developers including:
 
 - Syntax highlighting
-- Syntax highligting scheme theming
+- Highlight scheme theming
 - Built-in VTE Terminal
 - Line numbering
 - Filesystem / source directory view
