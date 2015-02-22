@@ -4,7 +4,7 @@
 
 A minimalistic text editor designed for both ordinary use and software development.
 
-![Screenshot of JournalNext](https://raw.githubusercontent.com/zesterer/journalplus/master/misc/screenshot.png "Screenshot of JournalNext with the VTE Terminal turned on")
+![Screenshot of JournalNext](https://raw.githubusercontent.com/zesterer/journalnext/master/misc/screenshot.png "Screenshot of JournalNext with the VTE Terminal turned on")
 
 ##What is JournalNext?
 
