@@ -34,9 +34,10 @@ namespace EvolveJournal
 			this.source_view.cursor_visible = true;
 			this.source_view.set_show_line_numbers(bool.parse(this.window.config.getProperty("line-numbers")));
 			this.source_view.set_auto_indent(true);
+			this.source_view.set_tab_width(4);
 			var fontdec = new Pango.FontDescription();
 			fontdec.set_family("Monospace");
-			this.source_view.modify_font(fontdec);
+			this.source_view.override_font(fontdec);
 			
 			this.text_buffer = new Gtk.SourceBuffer(null);
 			this.text_buffer.changed.connect(this.change_buffer);

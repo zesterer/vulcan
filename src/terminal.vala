@@ -18,7 +18,14 @@ namespace EvolveJournal
 			this.set_vexpand(false);
 			this.set_background_transparent(true);
 			
-			this.fork_command_full(Vte.PtyFlags.DEFAULT, null, {Vte.get_user_shell()}, null, SpawnFlags.SEARCH_PATH, null, out this.pid);
+			try
+			{
+				this.fork_command_full(Vte.PtyFlags.DEFAULT, null, {Vte.get_user_shell()}, null, SpawnFlags.SEARCH_PATH, null, out this.pid);
+			}
+			catch (Error error)
+			{
+				this.root.consts.output(error.message);
+			}
 			
 			this.background_transparent = true;
 			this.background_opacity = 1.0;

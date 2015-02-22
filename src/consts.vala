@@ -2,17 +2,15 @@ namespace EvolveJournal
 {
 	public class Consts : Object
 	{
-		public const string name = "Journal";
-		public const string comment = "A Gtk app to edit your files";
-		public const int[] version = {2, 0, 0};
+		public string name = "Journal";
+		public string comment = "A Gtk app to edit your files";
+		public int[] version = {2, 0, 0};
 	
-		public const bool debug = true;
+		public int min_width = 500;
+		public int min_height = 300;
 	
-		public const int min_width = 500;
-		public const int min_height = 300;
-	
-		public const int default_width = 800;
-		public const int default_height = 600;
+		public int default_width = 800;
+		public int default_height = 600;
 		
 		public Application application;
 		

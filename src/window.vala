@@ -76,7 +76,7 @@ namespace EvolveJournal
 			this.terminal_scrolled_window = new Gtk.ScrolledWindow(null, null);
 			this.terminal_scrolled_window.height_request = 200;
 			this.terminal_scrolled_window.set_hexpand(false);
-			this.terminal_scrolled_window.set_shadow_type(Gtk.ShadowType.ETCHED_OUT);
+			//this.terminal_scrolled_window.set_shadow_type(Gtk.ShadowType.ETCHED_OUT);
 			this.terminal_revealer.add(this.terminal_scrolled_window);
 			
 			this.terminal = new Terminal(this);

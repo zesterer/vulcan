@@ -46,7 +46,8 @@ namespace EvolveJournal
 	{
 		Gtk.init(ref args);
 	
-		Application application = new Application(args);
+		Application application;
+		application = new Application(args);
 	
 		Gtk.main();
 	

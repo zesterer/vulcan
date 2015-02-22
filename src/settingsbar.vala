@@ -25,7 +25,7 @@ namespace EvolveJournal
 			this.scrolled_window = new Gtk.ScrolledWindow(null, null);
 			this.scrolled_window.width_request = 230;
 			this.scrolled_window.set_policy(Gtk.PolicyType.NEVER, Gtk.PolicyType.AUTOMATIC);
-			this.scrolled_window.set_shadow_type(Gtk.ShadowType.ETCHED_OUT);
+			//this.scrolled_window.set_shadow_type(Gtk.ShadowType.ETCHED_OUT);
 			this.add(this.scrolled_window);
 			
 			this.list_box = new Gtk.ListBox();
@@ -145,9 +145,13 @@ namespace EvolveJournal
 			
 			this.combo_box = new Gtk.ComboBoxText();
 			this.combo_box.set_halign(Gtk.Align.END);
-			string[] schemes = Gtk.SourceStyleSchemeManager.get_default().get_scheme_ids();
+			
+			//Find all the currently available schemes
+			Gtk.SourceStyleSchemeManager scheme_manager = Gtk.SourceStyleSchemeManager.get_default();
+			string[] schemes = scheme_manager.get_scheme_ids();
 			for (int count = 0; count < schemes.length; count ++)
 				this.combo_box.append_text(schemes[count]);
+			
 			this.combo_box.changed.connect(this.changeScheme);
 			this.combo_box.set_active(0);
 			this.pack_end(this.combo_box);
