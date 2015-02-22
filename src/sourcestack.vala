@@ -7,6 +7,8 @@ namespace EvolveJournal
 		public Window window;
 		
 		public DynamicList<TabBox> tabs;
+		
+		public signal void hasSwitched();
 	
 		public SourceStack(Window mother)
 		{
@@ -15,20 +17,39 @@ namespace EvolveJournal
 			this.window = this.mother.window;
 			
 			this.set_vexpand(true);
+			this.set_hexpand(true);
+			this.set_transition_type(Gtk.StackTransitionType.SLIDE_UP_DOWN);
 			
 			this.tabs = new DynamicList<TabBox>();
-			
-			this.addTab();
 		}
 		
-		public TabBox addTab()
+		public TabBox addTab(File? file)
 		{
-			TabBox tab = new TabBox(this);
+			TabBox tab = new TabBox(this, file);
 			
 			this.tabs.add(tab);
-			this.add_named(tab, "test");
+			
+			this.add(tab);
+			
+			this.switchTo(tab);
+			
+			if (this.tabs.length == 2)
+			{
+				this.window.showSideBar(true);
+			}
 			
 			return tab;
+		}
+		
+		public void switchTo(Gtk.Widget widget)
+		{
+			this.set_visible_child(widget);
+			this.hasSwitched();
+		}
+		
+		public unowned TabBox getCurrentTab()
+		{
+			return (TabBox)this.get_visible_child();
 		}
 	}
 }

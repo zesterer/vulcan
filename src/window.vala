@@ -121,5 +121,36 @@ namespace EvolveJournal
 					break;
 			}
 		}
+		
+		public void openFileWithDialog()
+		{
+			Gtk.FileChooserDialog file_chooser = new Gtk.FileChooserDialog("Open File", this, Gtk.FileChooserAction.OPEN, "Cancel", Gtk.ResponseType.CANCEL, "Open", Gtk.ResponseType.ACCEPT);
+			
+			file_chooser.set_select_multiple(true);
+			file_chooser.set_local_only(true);
+			
+			//Open the dialog
+			int response = file_chooser.run();
+			
+			if (response == Gtk.ResponseType.ACCEPT)
+			{
+				SList<File> files_chosen = file_chooser.get_files();
+				for (int count = 0; count < files_chosen.length(); count ++)
+				{
+					this.root.consts.output("Opening file " + files_chosen.nth_data(count).get_path());
+					this.openFile(files_chosen.nth_data(count));
+				}
+				
+				this.root.consts.output("Opened " + files_chosen.length().to_string() + " files");
+			}
+			
+			file_chooser.destroy();
+		}
+		
+		public void openFile(File file)
+		{
+			TabBox tab = this.source_stack.addTab(file);
+			tab.sidebar_tab_row.switchTo();
+		}
 	}
 }

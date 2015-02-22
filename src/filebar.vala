@@ -35,6 +35,7 @@ namespace EvolveJournal
 			this.open_button.set_relief(Gtk.ReliefStyle.NONE);
 			this.open_button.set_tooltip_text("Open an existing file");
 			this.open_button.set_image(new Gtk.Image.from_icon_name("document-open-symbolic", Gtk.IconSize.MENU));
+			this.open_button.clicked.connect(this.openFileButtonClicked);
 			this.add(this.open_button);
 			
 			this.save_button = new Gtk.Button();
@@ -72,6 +73,11 @@ namespace EvolveJournal
 		public void fileEdited(TabBox tab_box)
 		{
 			this.save_button.get_style_context().add_class("suggested-action");
+		}
+		
+		public void openFileButtonClicked()
+		{
+			this.window.openFileWithDialog();
 		}
 	}
 }

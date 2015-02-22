@@ -13,13 +13,23 @@ namespace EvolveJournal
 		public Gtk.SourceBuffer text_buffer;
 		public Gtk.SourceStyleSchemeManager source_style_scheme_manager;
 		
+		public SideBarTabRow sidebar_tab_row;
+		
+		public File? file;
+		public string filename;
+		public string language;
+		
 		public bool unsaved;
 		
-		public TabBox(SourceStack mother)
+		public TabBox(SourceStack mother, File? file)
 		{
 			this.root = mother.root;
 			this.mother = mother;
 			this.window = this.mother.window;
+			
+			this.unsaved = false;
+			
+			this.file = file;
 			
 			this.config = new Config(this.root.consts);
 			
@@ -43,16 +53,44 @@ namespace EvolveJournal
 			this.text_buffer.changed.connect(this.change_buffer);
 			this.source_view.set_buffer(this.text_buffer);
 			
+			if (this.file != null)
+			{
+				this.root.consts.output("Loading file " + this.filename);
+				this.filename = this.file.get_basename();
+				
+				string text;
+				try
+				{
+					FileUtils.get_contents(this.file.get_path(), out text);
+					this.setSyntaxHighlighting();
+					this.root.consts.output("Loaded text from file");
+				}
+				catch (Error e)
+				{
+					text = "";
+					stderr.printf("Error: %s\n", e.message);
+				}
+				this.text_buffer.set_text(text);
+			}
+			else
+			{
+				this.unsaved = true;
+				this.filename = "null";
+			}
+			
 			this.source_style_scheme_manager = Gtk.SourceStyleSchemeManager.get_default();
 			this.changeSourceScheme(this.window.config.getProperty("scheme"));
 			this.text_buffer.set_highlight_syntax(true);
 		  
 			this.scrolled_window.add(this.source_view);
 			
-			this.unsaved = false;
+			//Create it's sidebar tab row
+			this.sidebar_tab_row = new SideBarTabRow(this.window.sidebar.sidebar_list, this);
 			
 			//Get any updates from the window's config
 			this.window.config.dataChanged.connect(this.dataWindowChanged);
+			
+			this.show_all();
 		}
 		
 		public void change_buffer()
@@ -78,6 +116,42 @@ namespace EvolveJournal
 					this.source_view.set_show_line_numbers(bool.parse(data));
 					break;
 			}
+		}
+		
+		public void setSyntaxHighlighting()
+		{
+			FileInfo? info = null;
+			try
+			{
+				info = this.file.query_info("standard::*", FileQueryInfoFlags.NONE, null);
+			}
+			catch (Error e)
+			{
+				warning (e.message);
+				return;
+			}
+		  
+			string mime_type = ContentType.get_mime_type (info.get_attribute_as_string (FileAttribute.STANDARD_CONTENT_TYPE));
+			
+			Gtk.SourceLanguageManager language_manager = new Gtk.SourceLanguageManager();
+			language = language_manager.guess_language(this.file.get_path(), mime_type).get_name();
+			
+			if (language != null)
+			{
+				this.text_buffer.set_language(language_manager.guess_language(file.get_path(), mime_type));
+				this.root.consts.output("Set language to " + language);
+			}
+			else
+			{
+				this.root.consts.output("No language set");
+			}
+		}
+		
+		public void close()
+		{
+			this.sidebar_tab_row.mother.list_box.remove(this.sidebar_tab_row.parent);
+			this.sidebar_tab_row.destroy();
+			this.destroy();
 		}
 	}
 }
