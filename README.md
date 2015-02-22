@@ -1,6 +1,6 @@
-## Please Note: JournalNext Is Currently In Heavy Development And Does Not Function Properly Yet
+##Please Note That JournalNext Is Currently In Heavy Development And Does Not Function Properly Yet
 
-# JournalNext
+#JournalNext
 
 A minimalistic text editor designed for both ordinary use and software development.
 
@@ -13,6 +13,7 @@ JournalNext is the next incarnation of the Journal text editor (version 1.0 seen
 - Multi-file editing
 - Monospace text editing
 - Saving (including Save As) and loading
+- Edit detection using string hashing
 - Basic theming
 
 However, in addition it also aims to provide a range of tools helpful to developers including:
@@ -21,8 +22,6 @@ However, in addition it also aims to provide a range of tools helpful to develop
 - Highlight scheme theming
 - Built-in VTE Terminal
 - Line numbering
-- Filesystem / source directory view
-- (Possible) integration with other build tools
 
 ##Why not another mainstream text editor?
 
@@ -53,6 +52,16 @@ JournalNext depends on various libraries:
 - GLib
 - Gio
 - Vala
+
+##Planned Features
+
+Please note that this list is subject to change.
+
+- Filesystem / source directory view
+- (Possible) integration with other build tools
+- Syntax completion
+- Pastebin / Hastebin integration
+- More sharing tools
 
 ##Credits
 
