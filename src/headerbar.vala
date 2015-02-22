@@ -1,4 +1,4 @@
-namespace EvolveJournal
+namespace Journal
 {
 	public class HeaderBar : Gtk.HeaderBar
 	{
