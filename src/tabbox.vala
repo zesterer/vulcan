@@ -87,10 +87,12 @@ namespace EvolveJournal
 		  
 			this.scrolled_window.add(this.source_view);
 			
+			
 			//Create it's sidebar tab row
 			this.sidebar_tab_row = new SideBarTabRow(this.window.sidebar.sidebar_list, this);
 			
 			//Get any updates from the window's config
+			this.window.config.dataChanged.connect(this.dataWindowChanged);
 			this.unsavedChanged.connect(this.window.filebar.update);
 			
 			this.show_all();
@@ -119,6 +121,7 @@ namespace EvolveJournal
 		public void changeSourceScheme(string scheme)
 		{
 			this.text_buffer.set_style_scheme(this.source_style_scheme_manager.get_scheme(scheme));
+			this.root.consts.output("Changed scheme for tab");
 		}
 		
 		public void dataWindowChanged(string name, string data)
