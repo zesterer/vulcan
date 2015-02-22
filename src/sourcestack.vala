@@ -44,14 +44,10 @@ namespace Journal
 			this.switchTo(tab);
 			
 			if (this.tabs.length == 1)
-			{
 				this.remove(this.no_tab_box);
-			}
 			
 			if (this.tabs.length == 2)
-			{
 				this.window.config.setProperty("show-sidebar", "true");
-			}
 			
 			return tab;
 		}
@@ -71,6 +67,9 @@ namespace Journal
 		
 		public void checkRemove(Gtk.Widget widget)
 		{
+			if (this.tabs.length == 0)
+				this.window.config.setProperty("show-sidebar", "false");
+			
 			this.root.consts.output("Removed tab");
 			if (this.tabs.length == 0)
 				this.add(this.no_tab_box);
