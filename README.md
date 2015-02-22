@@ -66,4 +66,4 @@ Please note that this list is subject to change.
 ##Credits
 
 JournalNext is developed by Ryan Sipes & Barry Smith.
-All code within this repository is licensed under the GPL 2.0 software license.
+All code within this repository is licensed under the GPL 2.0 software license unless otherwise specified.
