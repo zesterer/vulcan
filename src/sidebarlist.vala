@@ -55,7 +55,7 @@ namespace EvolveJournal
 			this.icon.set_from_icon_name("text-x-generic-symbolic", Gtk.IconSize.MENU);
 			this.add(this.icon);
 			
-			this.label = new Gtk.Label(this.owner.filename);
+			this.label = new Gtk.Label("null");
 			this.label.set_ellipsize(Pango.EllipsizeMode.END);
 			this.add(this.label);
 			
@@ -70,6 +70,13 @@ namespace EvolveJournal
 			this.show_all();
 			
 			this.mother.list_box.row_selected.connect(this.clickSelected);
+			
+			this.update();
+		}
+		
+		public void update()
+		{
+			this.label.set_label(this.owner.filename);
 		}
 		
 		public void switchTo()

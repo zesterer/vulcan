@@ -11,6 +11,7 @@ namespace EvolveJournal
 		public Gtk.ScrolledWindow scrolled_window;
 		public Gtk.SourceView source_view;
 		public Gtk.SourceBuffer text_buffer;
+		public uint text_hash;
 		public Gtk.SourceStyleSchemeManager source_style_scheme_manager;
 		
 		public SideBarTabRow sidebar_tab_row;
@@ -75,6 +76,7 @@ namespace EvolveJournal
 					stderr.printf("Error: %s\n", e.message);
 				}
 				this.text_buffer.set_text(text);
+				this.reHash();
 			}
 			else
 			{
@@ -101,6 +103,11 @@ namespace EvolveJournal
 			this.loaded = true;
 		}
 		
+		public void reHash()
+		{
+			this.text_hash = text_buffer.text.hash();
+		}
+		
 		public bool unsaved
 		{
 			get
@@ -115,7 +122,13 @@ namespace EvolveJournal
 		public void change_buffer()
 		{
 			if (this.loaded)
-				this.unsaved = true;
+			{
+				uint new_hash = text_buffer.text.hash();
+				if (new_hash != text_hash)
+					this.unsaved = true;
+				else
+					this.unsaved = false;
+			}
 		}
 		
 		public void changeSourceScheme(string scheme)
