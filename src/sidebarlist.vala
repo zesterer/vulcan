@@ -74,7 +74,6 @@ namespace EvolveJournal
 		
 		public void switchTo()
 		{
-			this.root.consts.output("Switching to tab with file " + this.owner.filename);
 			this.window.source_stack.switchTo(this.owner);
 		}
 		

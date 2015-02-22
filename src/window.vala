@@ -152,5 +152,10 @@ namespace EvolveJournal
 			TabBox tab = this.source_stack.addTab(file);
 			tab.sidebar_tab_row.switchTo();
 		}
+		
+		public void newFile()
+		{
+			this.source_stack.addTab(null);
+		}
 	}
 }

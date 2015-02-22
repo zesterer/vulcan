@@ -29,6 +29,7 @@ namespace EvolveJournal
 			this.new_button.set_relief(Gtk.ReliefStyle.NONE);
 			this.new_button.set_tooltip_text("Create a new file");
 			this.new_button.set_image(new Gtk.Image.from_icon_name("document-new-symbolic", Gtk.IconSize.MENU));
+			this.new_button.clicked.connect(this.newFileButtonClicked);
 			this.add(this.new_button);
 			
 			this.open_button = new Gtk.Button();
@@ -70,14 +71,35 @@ namespace EvolveJournal
 				this.window.config.setProperty("show-sidebar", "false");
 		}
 		
-		public void fileEdited(TabBox tab_box)
+		public void newFileButtonClicked()
 		{
-			this.save_button.get_style_context().add_class("suggested-action");
+			this.window.newFile();
 		}
 		
 		public void openFileButtonClicked()
 		{
 			this.window.openFileWithDialog();
+		}
+		
+		public void update()
+		{
+			if (this.window.source_stack.getCurrentTab() != null)
+			{
+				if (this.window.source_stack.getCurrentTab().unsaved)
+				{
+					this.save_button.override_background_color(Gtk.StateFlags.NORMAL, {1.0, 0.1, 0.0, 0.4});
+				}
+				else
+				{
+					this.save_button.override_background_color(Gtk.StateFlags.NORMAL, {0.0, 0.0, 0.0, 0.0});
+				}
+			}
+			else
+			{
+				this.root.consts.output("Source stack has a null tab currently");
+			}
+			
+			this.root.consts.output("Updated filebar");
 		}
 	}
 }

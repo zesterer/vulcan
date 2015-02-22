@@ -19,15 +19,19 @@ namespace EvolveJournal
 		public string filename;
 		public string language;
 		
-		public bool unsaved;
+		private bool loaded;
+		private bool _unsaved;
+		public signal void unsavedChanged();
 		
 		public TabBox(SourceStack mother, File? file)
 		{
+			this.loaded = false;
+			
 			this.root = mother.root;
 			this.mother = mother;
 			this.window = this.mother.window;
 			
-			this.unsaved = false;
+			this._unsaved = false;
 			
 			this.file = file;
 			
@@ -74,8 +78,7 @@ namespace EvolveJournal
 			}
 			else
 			{
-				this.unsaved = true;
-				this.filename = "null";
+				this.filename = "Untitled";
 			}
 			
 			this.source_style_scheme_manager = Gtk.SourceStyleSchemeManager.get_default();
@@ -88,15 +91,29 @@ namespace EvolveJournal
 			this.sidebar_tab_row = new SideBarTabRow(this.window.sidebar.sidebar_list, this);
 			
 			//Get any updates from the window's config
-			this.window.config.dataChanged.connect(this.dataWindowChanged);
+			this.unsavedChanged.connect(this.window.filebar.update);
 			
 			this.show_all();
+			
+			//Everything's finished and the new tab is loaded!
+			this.loaded = true;
+		}
+		
+		public bool unsaved
+		{
+			get
+			{return this._unsaved;}
+			set
+			{
+				this._unsaved = value;
+				this.unsavedChanged();
+			}
 		}
 		
 		public void change_buffer()
 		{
-			this.unsaved = true;
-			this.mother.mother.filebar.save_button.override_background_color(Gtk.StateFlags.NORMAL, {1.0, 0.1, 0.0, 0.4});
+			if (this.loaded)
+				this.unsaved = true;
 		}
 		
 		public void changeSourceScheme(string scheme)
