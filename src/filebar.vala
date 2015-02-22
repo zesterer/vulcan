@@ -88,10 +88,12 @@ namespace Journal
 				if (this.window.source_stack.getCurrentTab().unsaved)
 				{
 					this.save_button.override_background_color(Gtk.StateFlags.NORMAL, {1.0, 0.1, 0.0, 0.4});
+					this.save_button.set_tooltip_text("Save the current file (it is currently unsaved)");
 				}
 				else
 				{
 					this.save_button.override_background_color(Gtk.StateFlags.NORMAL, {0.0, 0.0, 0.0, 0.0});
+					this.save_button.set_tooltip_text("Save the current file");
 				}
 			}
 			else

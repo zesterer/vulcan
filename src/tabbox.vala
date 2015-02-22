@@ -81,6 +81,7 @@ namespace Journal
 			else
 			{
 				this.filename = "Untitled";
+				this.unsaved = true;
 			}
 			
 			this.source_style_scheme_manager = Gtk.SourceStyleSchemeManager.get_default();
@@ -106,6 +107,7 @@ namespace Journal
 		public void reHash()
 		{
 			this.text_hash = text_buffer.text.hash();
+			this.unsaved = false;
 		}
 		
 		public bool unsaved
@@ -124,10 +126,11 @@ namespace Journal
 			if (this.loaded)
 			{
 				uint new_hash = text_buffer.text.hash();
-				if (new_hash != text_hash)
-					this.unsaved = true;
-				else
-					this.unsaved = false;
+				this.unsaved = (new_hash != text_hash);
+			}
+			else
+			{
+				this.reHash();
 			}
 		}
 		
@@ -184,6 +187,7 @@ namespace Journal
 		{
 			this.sidebar_tab_row.mother.list_box.remove(this.sidebar_tab_row.parent);
 			this.sidebar_tab_row.destroy();
+			this.mother.tabs.remove(this);
 			this.destroy();
 		}
 	}

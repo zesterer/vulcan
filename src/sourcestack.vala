@@ -8,6 +8,8 @@ namespace Journal
 		
 		public DynamicList<TabBox> tabs;
 		
+		public NoTabBox no_tab_box;
+		
 		public signal void hasSwitched();
 	
 		public SourceStack(Window mother)
@@ -23,6 +25,12 @@ namespace Journal
 			this.hasSwitched.connect(this.window.filebar.update);
 			
 			this.tabs = new DynamicList<TabBox>();
+			
+			//The default page
+			this.no_tab_box = new NoTabBox(this);
+			this.add(this.no_tab_box);
+			
+			this.remove.connect(this.checkRemove);
 		}
 		
 		public TabBox addTab(File? file)
@@ -35,9 +43,14 @@ namespace Journal
 			
 			this.switchTo(tab);
 			
+			if (this.tabs.length == 1)
+			{
+				this.remove(this.no_tab_box);
+			}
+			
 			if (this.tabs.length == 2)
 			{
-				this.window.showSideBar(true);
+				this.window.config.setProperty("show-sidebar", "true");
 			}
 			
 			return tab;
@@ -54,6 +67,13 @@ namespace Journal
 		public unowned TabBox? getCurrentTab()
 		{
 			return (TabBox)this.get_visible_child();
+		}
+		
+		public void checkRemove(Gtk.Widget widget)
+		{
+			this.root.consts.output("Removed tab");
+			if (this.tabs.length == 0)
+				this.add(this.no_tab_box);
 		}
 	}
 }

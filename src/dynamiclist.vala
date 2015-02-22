@@ -1,8 +1,10 @@
-//This class here acts as a wrapper around GLib's built-in list type.
-//I didn't like the GLib.List API, so I built this wrapper to abstract it
-//behind a new interface that feels nicer to use when coding. It also makes
-//things a lot easier.
-//By the way, GLib is Vala's standard library.
+/*
+* This class here acts as a wrapper around GLib's built-in list type.
+* I didn't like the GLib.List API, so I built this wrapper to abstract it
+* behind a new interface that feels nicer to use when coding. It also makes
+* things a lot easier.
+*/
+
 public class DynamicList<G> : GLib.Object
 {
 	//The internal list. 'G' is the type that the list accepts (user-defined)
@@ -19,6 +21,12 @@ public class DynamicList<G> : GLib.Object
 	{
 		unowned List<G> todelete = this._list.nth(index);
 		this._list.delete_link(todelete);
+	}
+	
+	//Remove a specific index of the list.
+	public void remove(G data)
+	{
+		this._list.remove(data);
 	}
 	
 	//Find the object at index like: G object = list[x];

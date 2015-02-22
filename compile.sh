@@ -20,5 +20,10 @@ src/settingsbar.vala \
 src/terminal.vala \
 src/sidebarlist.vala \
 src/config.vala \
+src/notabbox.vala \
 #-X -fsanitize=address \
 #Uncomment the line below to allow debugging
+
+LINES_VALA=`( find src -name '*.vala' -print0 | xargs -0 cat ) | wc -l`
+
+echo "There are $LINES_VALA lines of Vala code in the src directory."
