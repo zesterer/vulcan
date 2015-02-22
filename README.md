@@ -1,4 +1,4 @@
-## Please Note: Journalplus Is Currently In Heavy Development And Does Not Function Properly Yet
+## Please Note: JournalNext Is Currently In Heavy Development And Does Not Function Properly Yet
 
 # JournalNext
 
@@ -26,9 +26,9 @@ However, it also aims to provide a range of tools helpful to developers includin
 
 JournalNext has both unique features and a unique emphasis on design. Widget elements are smoothly animated, and the interface is designed to be intuitive and self-explanatory. It contains many useful features for more advanced tasks, but emphasises simplicity and versatility.
 
-##How can I build JournalPlus?
+##How can I build JournalNext?
 
-At the moment, Journal doesn't have a proper build system and uses a little BASH script for compilation. To compile JournalPlus, execute these commands:
+At the moment, Journal doesn't have a proper build system and uses a little BASH script for compilation. To compile JournalNext, execute these commands:
 
 `git clone https://github.com/zesterer/journalnext`
 
@@ -36,13 +36,13 @@ At the moment, Journal doesn't have a proper build system and uses a little BASH
 
 `sh compile.sh`
 
-To run JournalPlus, execute:
+To run JournalNext, execute:
 
 `./journal`
 
 ##Dependencies
 
-JournalPlus depends on various libraries:
+JournalNext depends on various libraries:
 
 - Gtk 3.14
 - VTE 2.90
@@ -54,5 +54,5 @@ JournalPlus depends on various libraries:
 
 ##Credits
 
-JournalPlus is developed by Ryan Sipes & Barry Smith.
+JournalNext is developed by Ryan Sipes & Barry Smith.
 All code within this repository is licensed under the GPL 2.0 software license.
