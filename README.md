@@ -4,6 +4,8 @@
 
 A minimalistic text editor designed for both ordinary use and software development.
 
+![Screenshot of JournalNext](https://raw.githubusercontent.com/zesterer/journalplus/master/misc/screenshot.png "Screenshot of JournalNext with the VTE Terminal turned on")
+
 ##What is JournalNext?
 
 JournalNext is the next incarnation of the Journal text editor (version 1.0 seen here: http://www.github.com/evolve-os/journal/). It aims to be fast, and minimalist on first use, and provides the following basic features:

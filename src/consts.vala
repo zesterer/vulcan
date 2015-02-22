@@ -3,7 +3,7 @@ namespace EvolveJournal
 	public class Consts : Object
 	{
 		public const string name = "Journal";
-		public const string comment = "An Evolve OS app to edit your files";
+		public const string comment = "A Gtk app to edit your files";
 		public const int[] version = {2, 0, 0};
 	
 		public const bool debug = true;
