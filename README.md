@@ -4,7 +4,7 @@
 
 A minimalistic text editor designed for both ordinary use and software development.
 
-YT("http://youtu.be/is2f3xVIvFM", print = TRUE)
+[![Alt text for your video](https://img.youtube.com/vi/2f3xVIvFM/0.jpg)](https://www.youtube.com/watch?v=is2f3xVIvFM)
 
 ##What is JournalNext?
 
