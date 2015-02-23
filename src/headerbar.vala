@@ -40,6 +40,7 @@ namespace Vulcan
 			this.new_window_button = new Gtk.Button();
 			this.new_window_button.set_image(new Gtk.Image.from_icon_name("text-editor-symbolic", Gtk.IconSize.MENU));
 			this.new_window_button.clicked.connect(this.newWindowButtonClicked);
+			this.new_window_button.set_tooltip_text("Open a new window");
 			this.pack_start(this.new_window_button);
 			
 			this.settings_button = new Gtk.ToggleButton();

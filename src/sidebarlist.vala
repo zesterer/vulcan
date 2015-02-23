@@ -66,7 +66,7 @@ namespace Vulcan
 			this.set_orientation(Gtk.Orientation.HORIZONTAL);
 			this.set_margin_start(8);
 			this.set_margin_end(8);
-			this.set_spacing(8);
+			this.set_spacing(4);
 			this.set_tooltip_text(this.owner.filename);
 			
 			this.icon = new Gtk.Image();

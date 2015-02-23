@@ -48,7 +48,7 @@ To run Vulcan, execute:
 Vulcan depends on various libraries:
 
 - Gtk 3.14
-- VTE 2.90
+- VTE 2.91
 - Pango
 - GtkSourceView
 - GLib

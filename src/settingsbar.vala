@@ -82,6 +82,8 @@ namespace Vulcan
 			this.orientation = Gtk.Orientation.HORIZONTAL;
 			this.set_margin_start(8);
 			this.set_margin_end(8);
+			this.set_margin_top(4);
+			this.set_margin_bottom(4);
 			this.set_spacing(8);
 			
 			this.label = new Gtk.Label("Dark Theme");
@@ -119,6 +121,8 @@ namespace Vulcan
 			this.orientation = Gtk.Orientation.HORIZONTAL;
 			this.set_margin_start(8);
 			this.set_margin_end(8);
+			this.set_margin_top(4);
+			this.set_margin_bottom(4);
 			this.set_spacing(8);
 			
 			this.label = new Gtk.Label("Line Numbers");
@@ -156,6 +160,8 @@ namespace Vulcan
 			this.orientation = Gtk.Orientation.HORIZONTAL;
 			this.set_margin_start(8);
 			this.set_margin_end(8);
+			this.set_margin_top(4);
+			this.set_margin_bottom(4);
 			this.set_spacing(8);
 			
 			this.label = new Gtk.Label("Text Scheme");
@@ -199,6 +205,8 @@ namespace Vulcan
 			this.orientation = Gtk.Orientation.HORIZONTAL;
 			this.set_margin_start(8);
 			this.set_margin_end(8);
+			this.set_margin_top(4);
+			this.set_margin_bottom(4);
 			this.set_spacing(8);
 			
 			this.label = new Gtk.Label("Show Terminal");
