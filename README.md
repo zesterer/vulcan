@@ -29,7 +29,7 @@ However, in addition it also aims to provide a range of tools helpful to develop
 
 ##Why not another mainstream text editor?
 
-Vulcan has both unique features and a unique emphasis on design. Widget elements are smoothly animated, and the interface is designed to be intuitive and self-explanatory. It contains many useful features for more advanced tasks, but emphasises simplicity and versatility.
+Vulcan has both unique features and a unique emphasis on design. Widget elements are smoothly animated, and the interface is designed to be intuitive and self-explanatory. It contains many useful features for more advanced tasks, but emphasises simplicity and versatility. Vulcan's development is largely user-orientated.
 
 ##How can I build Vulcan?
 
