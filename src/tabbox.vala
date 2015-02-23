@@ -102,12 +102,23 @@ namespace Vulcan
 			
 			//Everything's finished and the new tab is loaded!
 			this.loaded = true;
+			this.update();
 		}
 		
 		public void reHash()
 		{
 			this.text_hash = text_buffer.text.hash();
 			this.unsaved = false;
+		}
+		
+		public void update()
+		{	
+			if (this.file != null)
+			{
+				this.filename = this.file.get_basename();
+			}
+			
+			this.sidebar_tab_row.update();
 		}
 		
 		public bool unsaved
@@ -181,6 +192,52 @@ namespace Vulcan
 			{
 				this.root.consts.output("No language set");
 			}
+		}
+		
+		public void save(bool saveas = false)
+		{
+			this.root.consts.output("Now saving...");
+			
+			if (this.file != null && saveas == false)
+			{
+				try
+				{
+					FileUtils.set_contents(file.get_path(), this.text_buffer.text);
+					this.reHash();
+					this.unsaved = false;
+					
+					this.root.consts.output("Saved");
+				}
+				catch (Error error)
+				{
+					stderr.printf("Error: %s\n", error.message);
+				}
+			}
+			else
+			{
+				this.root.consts.output("Getting new file choice...");
+				
+				Gtk.FileChooserDialog file_chooser = new Gtk.FileChooserDialog("Save File", this.window, Gtk.FileChooserAction.SAVE, "Cancel", Gtk.ResponseType.CANCEL, "Save", Gtk.ResponseType.ACCEPT);
+			
+				file_chooser.set_local_only(true);
+				file_chooser.set_do_overwrite_confirmation(true);
+				file_chooser.set_create_folders(true);
+				
+				int response = file_chooser.run();
+				
+				if (response == Gtk.ResponseType.ACCEPT)
+				{
+					this.file = File.new_for_path(file_chooser.get_filename());
+					this.update();
+					this.save();
+					return;
+				}
+				
+				file_chooser.destroy();
+			}
+			
+			this.setSyntaxHighlighting();
+			this.window.source_stack.switchTo(this.window.source_stack.getCurrentTab());
 		}
 		
 		public void close()

@@ -43,12 +43,14 @@ namespace Vulcan
 			this.save_button.set_relief(Gtk.ReliefStyle.NONE);
 			this.save_button.set_tooltip_text("Save the current file");
 			this.save_button.set_image(new Gtk.Image.from_icon_name("document-save-symbolic", Gtk.IconSize.MENU));
+			this.save_button.clicked.connect(this.saveFileButtonClicked);
 			this.add(this.save_button);
 			
 			this.saveas_button = new Gtk.Button();
 			this.saveas_button.set_relief(Gtk.ReliefStyle.NONE);
 			this.saveas_button.set_tooltip_text("Save the current file as a different file");
 			this.saveas_button.set_image(new Gtk.Image.from_icon_name("document-save-as-symbolic", Gtk.IconSize.MENU));
+			this.saveas_button.clicked.connect(this.saveAsFileButtonClicked);
 			this.add(this.saveas_button);
 			
 			Gtk.Box spacer = new Gtk.Box(Gtk.Orientation.VERTICAL, 0);
@@ -81,6 +83,20 @@ namespace Vulcan
 			this.window.openFileWithDialog();
 		}
 		
+		public void saveFileButtonClicked()
+		{
+			this.root.consts.output("Saved button clicked");
+			if (this.window.source_stack.getCurrentTab() != null)
+				this.window.source_stack.getCurrentTab().save();
+		}
+		
+		public void saveAsFileButtonClicked()
+		{
+			this.root.consts.output("Save As button clicked");
+			if (this.window.source_stack.getCurrentTab() != null)
+				this.window.source_stack.getCurrentTab().save(true);
+		}
+		
 		public void update()
 		{
 			if (this.window.source_stack.getCurrentTab() != null)
@@ -88,7 +104,7 @@ namespace Vulcan
 				if (this.window.source_stack.getCurrentTab().unsaved)
 				{
 					this.save_button.override_background_color(Gtk.StateFlags.NORMAL, {1.0, 0.1, 0.0, 0.4});
-					this.save_button.set_tooltip_text("Save the current file (it is currently unsaved)");
+					this.save_button.set_tooltip_text("Save the current file (currently unsaved)");
 				}
 				else
 				{

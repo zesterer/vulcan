@@ -30,6 +30,7 @@ namespace Vulcan
 			//The default page
 			this.no_tab_box = new NoTabBox(this);
 			this.add(this.no_tab_box);
+			this.switchTo(this.no_tab_box);
 			
 			this.remove.connect(this.checkRemove);
 		}
@@ -55,9 +56,11 @@ namespace Vulcan
 		
 		public void switchTo(Gtk.Widget widget)
 		{
-			this.root.consts.output("Switching to tab with file " + ((TabBox)widget).filename);
+			if (widget != this.no_tab_box)
+				this.root.consts.output("Switching to tab with file " + ((TabBox)widget).filename);
 			this.set_visible_child(widget);
-			this.window.sidebar.sidebar_list.list_box.select_row((Gtk.ListBoxRow)((TabBox)widget).sidebar_tab_row.parent);
+			if (widget != this.no_tab_box)
+				this.window.sidebar.sidebar_list.list_box.select_row((Gtk.ListBoxRow)((TabBox)widget).sidebar_tab_row.parent);
 			this.hasSwitched();
 		}
 		
@@ -76,7 +79,10 @@ namespace Vulcan
 			
 			this.root.consts.output("Removed tab");
 			if (this.tabs.length == 0)
+			{
 				this.add(this.no_tab_box);
+				this.switchTo(this.no_tab_box);
+			}
 			
 			this.hasSwitched();
 		}

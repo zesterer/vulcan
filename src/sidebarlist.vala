@@ -71,8 +71,6 @@ namespace Vulcan
 			this.show_all();
 			
 			this.mother.list_box.row_selected.connect(this.clickSelected);
-			
-			this.update();
 		}
 		
 		public void update()

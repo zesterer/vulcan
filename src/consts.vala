@@ -3,7 +3,7 @@ namespace Vulcan
 	public class Consts : Object
 	{
 		public string name = "Vulcan";
-		public string comment = "A Gtk app to edit your files";
+		public string comment = "A Gtk app to edit your text files";
 		public int[] version = {2, 0, 0};
 	
 		public int min_width = 500;
