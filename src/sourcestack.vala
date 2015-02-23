@@ -21,6 +21,7 @@ namespace Journal
 			this.set_vexpand(true);
 			this.set_hexpand(true);
 			this.set_transition_type(Gtk.StackTransitionType.SLIDE_UP_DOWN);
+			this.set_transition_duration(500);
 			
 			this.hasSwitched.connect(this.window.filebar.update);
 			

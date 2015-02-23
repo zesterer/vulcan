@@ -22,7 +22,7 @@ namespace Journal
 			
 			this.label = new Gtk.Label("");
 			this.label.set_justify(Gtk.Justification.CENTER);
-			this.label.set_markup("<span font=\"18\">Welcome to " + this.root.consts.name + "\n\n</span><span font=\"12\">No files are currently open</span>");
+			this.label.set_markup("<span font=\"30\">Welcome to " + this.root.consts.name + "\n\n</span><span font=\"16\">No files are currently open</span>");
 			this.label.set_hexpand(true);
 			//this.label.set_vexpand(true);
 			this.add(this.label);
