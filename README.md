@@ -1,14 +1,14 @@
-##Please Note That JournalNext Is Currently In Heavy Development And Does Not Function Properly Yet
+##Please Note That Vulcan Is Currently In Heavy Development And Does Not Function Properly Yet
 
-#JournalNext
+#Vulcan
 
 A minimalistic text editor designed for both ordinary use and software development.
 
-[![Click to view YouTube video](https://raw.githubusercontent.com/zesterer/journalnext/master/misc/screenshot.png)](https://www.youtube.com/watch?v=is2f3xVIvFM)
+[![Click to view YouTube video](https://raw.githubusercontent.com/zesterer/vulcan/master/misc/screenshot.png)](https://www.youtube.com/watch?v=is2f3xVIvFM)
 
-##What is JournalNext?
+##What is Vulcan?
 
-JournalNext is the next incarnation of the Journal text editor (version 1.0 seen here: http://www.github.com/evolve-os/journal/). It aims to be fast, minimalist on first use, and provides the following basic features:
+Vulcan is the next incarnation of the Vulcan text editor (version 1.0 seen here: http://www.github.com/evolve-os/vulcan/). It aims to be fast, minimalist on first use, and provides the following basic features:
 
 - Multi-file editing
 - Monospace text editing
@@ -25,25 +25,25 @@ However, in addition it also aims to provide a range of tools helpful to develop
 
 ##Why not another mainstream text editor?
 
-JournalNext has both unique features and a unique emphasis on design. Widget elements are smoothly animated, and the interface is designed to be intuitive and self-explanatory. It contains many useful features for more advanced tasks, but emphasises simplicity and versatility.
+Vulcan has both unique features and a unique emphasis on design. Widget elements are smoothly animated, and the interface is designed to be intuitive and self-explanatory. It contains many useful features for more advanced tasks, but emphasises simplicity and versatility.
 
-##How can I build JournalNext?
+##How can I build Vulcan?
 
-At the moment, Journal doesn't have a proper build system and uses a little BASH script for compilation. To compile JournalNext, execute these commands:
+At the moment, Vulcan doesn't have a proper build system and uses a little BASH script for compilation. To compile Vulcan, execute these commands:
 
-`git clone https://github.com/zesterer/journalnext`
+`git clone https://github.com/zesterer/Vulcan`
 
-`cd journalnext`
+`cd Vulcan`
 
 `sh compile.sh`
 
-To run JournalNext, execute:
+To run Vulcan, execute:
 
-`./journal`
+`./Vulcan`
 
 ##Dependencies
 
-JournalNext depends on various libraries:
+Vulcan depends on various libraries:
 
 - Gtk 3.14
 - VTE 2.90
@@ -65,5 +65,5 @@ Please note that this list is subject to change.
 
 ##Credits
 
-JournalNext is developed by Ryan Sipes & Barry Smith.
+Vulcan is developed by Ryan Sipes & Barry Smith.
 All code within this repository is licensed under the GPL 2.0 software license unless otherwise specified.
