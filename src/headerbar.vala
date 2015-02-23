@@ -40,8 +40,15 @@ namespace Vulcan
 			}
 			else
 			{
-				this.set_title(tab.filename);
-				this.set_subtitle(tab.file.get_path());
+				string title = tab.filename;
+				if (tab.language != null)
+					title += " [" + tab.language + "]";
+				
+				this.set_title(title);
+				if (tab.file == null)
+					this.set_subtitle("Unknown location");
+				else
+					this.set_subtitle(tab.file.get_path());
 			}
 		}
 	}
