@@ -57,7 +57,7 @@ namespace Vulcan
 		
 			this.set_size_request(this.root.consts.min_width, this.root.consts.min_height);
 			this.set_default_size(this.root.consts.default_width, this.root.consts.default_height);
-			this.destroy.connect(this.root.close);
+			this.destroy.connect(this.close);
 		
 			this.header_bar = new HeaderBar(this);
 			//this.add(this.header_bar);
@@ -112,6 +112,16 @@ namespace Vulcan
 			this.settingsbar_revealer.add(this.settingsbar);
 			
 			this.config.dataChanged.connect(this.dataWindowChanged);
+			
+			//All created, now show it
+			this.show_all();
+		}
+		
+		public void close()
+		{
+			this.root.windows.remove(this);
+			this.root.close();
+			this.destroy();
 		}
 		
 		public void showSideBar(bool show)

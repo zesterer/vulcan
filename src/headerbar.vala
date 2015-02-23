@@ -24,6 +24,7 @@ namespace Vulcan
 		public Window mother;
 		public Window window;
 		
+		public Gtk.Button new_window_button;
 		public Gtk.ToggleButton settings_button;
 	
 		public HeaderBar(Window mother)
@@ -36,6 +37,11 @@ namespace Vulcan
 			this.set_subtitle(this.root.consts.comment);
 			this.set_show_close_button(true);
 			
+			this.new_window_button = new Gtk.Button();
+			this.new_window_button.set_image(new Gtk.Image.from_icon_name("text-editor-symbolic", Gtk.IconSize.MENU));
+			this.new_window_button.clicked.connect(this.newWindowButtonClicked);
+			this.pack_start(this.new_window_button);
+			
 			this.settings_button = new Gtk.ToggleButton();
 			this.settings_button.set_image(new Gtk.Image.from_icon_name("open-menu-symbolic", Gtk.IconSize.MENU));
 			this.settings_button.clicked.connect(this.settingsBarButtonClicked);
@@ -45,6 +51,10 @@ namespace Vulcan
 		public void settingsBarButtonClicked()
 		{
 			this.window.config.setProperty("show-settingsbar", this.settings_button.get_active().to_string());
+		}
+		public void newWindowButtonClicked()
+		{
+			this.root.addWindow();
 		}
 		
 		public void tabSwitched()

@@ -121,7 +121,7 @@ namespace Vulcan
 			{
 				if (this.window.source_stack.getCurrentTab().unsaved)
 				{
-					this.save_button.override_background_color(Gtk.StateFlags.NORMAL, {1.0, 0.1, 0.0, 0.4});
+					this.save_button.override_background_color(Gtk.StateFlags.NORMAL, {1.0, 0.25, 0.0, 0.4});
 					this.save_button.set_tooltip_text("Save the current file (currently unsaved)");
 				}
 				else

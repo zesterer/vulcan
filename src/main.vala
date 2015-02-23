@@ -25,7 +25,7 @@ namespace Vulcan
 		public Consts consts;
 		public Config config;
 	
-		public Window window;
+		public DynamicList<Window> windows;
 	
 		public Application(string[] args)
 		{
@@ -39,8 +39,16 @@ namespace Vulcan
 			this.config.setProperty("debug", "true");
 			this.config.setProperty("dark-theme", "true");
 		
-			this.window = new Window(this);
-			this.window.show_all();
+			this.windows = new DynamicList<Window>();
+			
+			this.addWindow();
+		}
+		
+		public Window addWindow()
+		{
+			Window window = new Window(this);
+			this.windows.add(window);
+			return window;
 		}
 		
 		public void dataApplicationChanged(string name, string data)
@@ -55,8 +63,12 @@ namespace Vulcan
 	
 		public void close()
 		{
-			this.root.consts.output("Closing application...");
-			Gtk.main_quit();
+			if (this.windows.length < 1)
+			{
+				this.consts.output(@"There are $(this.windows.length) windows left");
+				this.root.consts.output("Closing application...");
+				Gtk.main_quit();
+			}
 		}
 	}
 
