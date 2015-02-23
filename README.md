@@ -10,6 +10,8 @@ A minimalistic text editor designed for both ordinary use and software developme
 
 Vulcan is the next incarnation of the Journal text editor (version 1.0 seen here: http://www.github.com/evolve-os/journal/). Originally named JournalNext, we've since taken the decision to rename the project 'Vulcan' and make it independent from the Evolve OS project. It aims to be fast, minimalist on first use, and provides the following basic features:
 
+We'd prefer Vulcan's development to be guided by it's users - you. If you have any suggestions for improvements, new features or you've found a bug, we strongly urge you to report it in the issues section.
+
 - Multi-file editing
 - Monospace text editing
 - Opening (multiple) plaintext files
@@ -66,6 +68,15 @@ Please note that this list is subject to change.
 - More sharing tools
 - Keyboard shortcuts
 - Restore files from previous session
+
+##User-Suggested (Potential) Wishlist
+
+- Return to popover settings?
+- Optional horizontal tab bar
+- Overview pane (a la sublime)
+- Drop-down language chooser
+
+Got any more ideas? Suggest them in the issues section!
 
 ##Credits
 
