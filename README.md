@@ -8,7 +8,7 @@ A minimalistic text editor designed for both ordinary use and software developme
 
 ##What is Vulcan?
 
-Vulcan is the next incarnation of the Journal text editor (version 1.0 seen here: http://www.github.com/evolve-os/vulcan/). It aims to be fast, minimalist on first use, and provides the following basic features:
+Vulcan is the next incarnation of the Journal text editor (version 1.0 seen here: http://www.github.com/evolve-os/journal/). It aims to be fast, minimalist on first use, and provides the following basic features:
 
 - Multi-file editing
 - Monospace text editing
