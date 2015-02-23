@@ -12,9 +12,11 @@ Vulcan is the next incarnation of the Journal text editor (version 1.0 seen here
 
 - Multi-file editing
 - Monospace text editing
-- Saving (including Save As) and loading
+- Opening (multiple) plaintext files
+- Saving (including Save As) plaintext files
 - Edit detection using string hashing
 - Basic theming
+- Smooth, animated UI
 
 However, in addition it also aims to provide a range of tools helpful to developers including:
 
