@@ -1,4 +1,4 @@
-##Please Note That Vulcan Is Currently In Heavy Development And Does Not Function Properly Yet
+##Please Note That Vulcan Is Currently In Development
 
 #Vulcan
 
