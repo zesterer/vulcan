@@ -64,6 +64,8 @@ Please note that this list is subject to change.
 - Syntax completion
 - Pastebin / Hastebin integration
 - More sharing tools
+- Keyboard shortcuts
+- Restore files from previous session
 
 ##Credits
 
