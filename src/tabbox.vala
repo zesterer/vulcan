@@ -212,24 +212,29 @@ namespace Vulcan
 			}
 		}
 		
+		public void saveData()
+		{
+			try
+			{
+				FileUtils.set_contents(file.get_path(), this.text_buffer.text);
+				this.reHash();
+				this.unsaved = false;
+				
+				this.root.consts.output("Saved");
+			}
+			catch (Error error)
+			{
+				stderr.printf("Error: %s\n", error.message);
+			}
+		}
+		
 		public void save(bool saveas = false)
 		{
 			this.root.consts.output("Now saving...");
 			
 			if (this.file != null && saveas == false)
 			{
-				try
-				{
-					FileUtils.set_contents(file.get_path(), this.text_buffer.text);
-					this.reHash();
-					this.unsaved = false;
-					
-					this.root.consts.output("Saved");
-				}
-				catch (Error error)
-				{
-					stderr.printf("Error: %s\n", error.message);
-				}
+				this.saveData();
 			}
 			else
 			{
@@ -247,8 +252,7 @@ namespace Vulcan
 				{
 					this.file = File.new_for_path(file_chooser.get_filename());
 					this.update();
-					this.save();
-					return;
+					this.saveData();
 				}
 				
 				file_chooser.destroy();

@@ -53,7 +53,7 @@ namespace Vulcan
 			this.new_button.set_halign(Gtk.Align.CENTER);
 			this.new_button.set_valign(Gtk.Align.CENTER);
 			this.new_button.set_relief(Gtk.ReliefStyle.NONE);
-			this.new_button.override_background_color(Gtk.StateFlags.NORMAL, {0.6, 0.8, 1.0, 0.6});
+			this.new_button.override_background_color(Gtk.StateFlags.NORMAL, {0.5, 0.5, 0.5, 0.5});
 			this.new_button.width_request = 100;
 			this.new_button.height_request = 100;
 			this.new_button.set_tooltip_text("Create a new file");
@@ -65,7 +65,7 @@ namespace Vulcan
 			this.open_button.set_halign(Gtk.Align.CENTER);
 			this.open_button.set_valign(Gtk.Align.CENTER);
 			this.open_button.set_relief(Gtk.ReliefStyle.NONE);
-			this.open_button.override_background_color(Gtk.StateFlags.NORMAL, {0.6, 0.8, 1.0, 0.6});
+			this.open_button.override_background_color(Gtk.StateFlags.NORMAL, {0.5, 0.5, 0.5, 0.5});
 			this.open_button.width_request = 100;
 			this.open_button.height_request = 100;
 			this.open_button.set_tooltip_text("Open an existing file");
