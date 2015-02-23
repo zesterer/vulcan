@@ -99,6 +99,7 @@ namespace Journal
 			else
 			{
 				this.root.consts.output("Source stack has a null tab currently");
+				this.save_button.override_background_color(Gtk.StateFlags.NORMAL, {0.0, 0.0, 0.0, 0.0});
 			}
 			
 			this.root.consts.output("Updated filebar");

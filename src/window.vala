@@ -69,6 +69,9 @@ namespace Journal
 			this.source_stack = new SourceStack(this);
 			this.source_stack_overlay.add(this.source_stack);
 			
+			//Connect the headerbar
+			this.source_stack.hasSwitched.connect(this.header_bar.tabSwitched);
+			
 			this.terminal_revealer = new Gtk.Revealer();
 			this.terminal_revealer.set_transition_type(Gtk.RevealerTransitionType.SLIDE_UP);
 			this.centre_box.add(this.terminal_revealer);
@@ -138,7 +141,19 @@ namespace Journal
 				for (int count = 0; count < files_chosen.length(); count ++)
 				{
 					this.root.consts.output("Opening file " + files_chosen.nth_data(count).get_path());
-					this.openFile(files_chosen.nth_data(count));
+					
+					bool already_open = false;
+					for (int count2 = 0; count2 < this.window.source_stack.tabs.length; count2 ++)
+					{
+						if (this.window.source_stack.tabs[count2].file.equal(files_chosen.nth_data(count)))
+						{
+							this.root.consts.output("File is already open!");
+							already_open = true;
+						}
+					}
+					
+					if (already_open == false)
+						this.openFile(files_chosen.nth_data(count));
 				}
 				
 				this.root.consts.output("Opened " + files_chosen.length().to_string() + " files");

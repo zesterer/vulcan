@@ -62,6 +62,7 @@ namespace Journal
 			this.close_button = new Gtk.Button();
 			this.close_button.set_halign(Gtk.Align.END);
 			this.close_button.set_relief(Gtk.ReliefStyle.NONE);
+			this.close_button.override_background_color(Gtk.StateFlags.NORMAL, {1.0, 1.0, 1.0, 0.05});
 			this.close_button.set_image(new Gtk.Image.from_icon_name("window-close-symbolic", Gtk.IconSize.BUTTON));
 			this.close_button.clicked.connect(this.owner.close);
 			this.pack_end(this.close_button);

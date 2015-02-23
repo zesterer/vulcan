@@ -46,7 +46,7 @@ namespace Journal
 			if (this.tabs.length == 1)
 				this.remove(this.no_tab_box);
 			
-			if (this.tabs.length == 2)
+			if (this.tabs.length == 1)
 				this.window.config.setProperty("show-sidebar", "true");
 			
 			return tab;
@@ -62,6 +62,9 @@ namespace Journal
 		
 		public unowned TabBox? getCurrentTab()
 		{
+			if (this.get_visible_child() == this.no_tab_box)
+				return null;
+			
 			return (TabBox)this.get_visible_child();
 		}
 		
@@ -73,6 +76,8 @@ namespace Journal
 			this.root.consts.output("Removed tab");
 			if (this.tabs.length == 0)
 				this.add(this.no_tab_box);
+			
+			this.hasSwitched();
 		}
 	}
 }

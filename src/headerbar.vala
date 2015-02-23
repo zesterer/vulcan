@@ -28,5 +28,21 @@ namespace Journal
 		{
 			this.window.config.setProperty("show-settingsbar", this.settings_button.get_active().to_string());
 		}
+		
+		public void tabSwitched()
+		{
+			TabBox? tab = this.window.source_stack.getCurrentTab();
+			
+			if (tab == null)
+			{
+				this.set_title(this.root.consts.name);
+				this.set_subtitle(this.root.consts.comment);
+			}
+			else
+			{
+				this.set_title(tab.filename);
+				this.set_subtitle(tab.file.get_path());
+			}
+		}
 	}
 }
