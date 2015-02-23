@@ -1,4 +1,4 @@
-namespace Journal
+namespace Vulcan
 {
 	public class SettingsBar : Gtk.Box
 	{

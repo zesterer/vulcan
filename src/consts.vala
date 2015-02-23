@@ -1,8 +1,8 @@
-namespace Journal
+namespace Vulcan
 {
 	public class Consts : Object
 	{
-		public string name = "Journal";
+		public string name = "Vulcan";
 		public string comment = "A Gtk app to edit your files";
 		public int[] version = {2, 0, 0};
 	

@@ -1,6 +1,6 @@
 #!/usr/bin/sh
 
-NAME=journal
+NAME=vulcan
 
 valac -o $NAME -X -lm \
 --pkg gtk+-3.0 \
