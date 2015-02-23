@@ -2,11 +2,18 @@
 
 NAME=vulcan
 
+vte_abi="--pkg vte-2.90"
+pkg-config vte-2.91 >/dev/null
+
+if [ "$?" -eq 0 ]; then
+    vte_abi="--pkg vte-2.91 --define HAVE_VTE291"
+fi
+
 valac -o $NAME -X -lm \
 --pkg gtk+-3.0 \
 --pkg gtksourceview-3.0 \
 --pkg pango \
---pkg vte-2.90 \
+$vte_abi \
 src/main.vala \
 src/window.vala \
 src/headerbar.vala \
