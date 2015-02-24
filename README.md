@@ -68,13 +68,16 @@ Please note that this list is subject to change.
 - More sharing tools
 - Keyboard shortcuts
 - Restore files from previous session
+- Keyboard shortcuts
+- Drop-down language chooser
 
 ##User-Suggested (Potential) Wishlist
 
 - Return to popover settings?
 - Optional horizontal tab bar
 - Overview pane (a la sublime)
-- Drop-down language chooser
+- Option to hide all buttons and rely on shortcuts
+- Gedit-style open files system
 
 Got any more ideas? Suggest them in the issues section!
 

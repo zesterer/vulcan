@@ -180,6 +180,15 @@ namespace Vulcan
 				case ("line-numbers"):
 					this.source_view.set_show_line_numbers(bool.parse(data));
 					break;
+				
+				case ("text-wrap"):
+					{
+						if (bool.parse(data))
+							this.source_view.set_wrap_mode(Gtk.WrapMode.WORD);
+						else
+							this.source_view.set_wrap_mode(Gtk.WrapMode.NONE);
+					}
+					break;
 			}
 		}
 		

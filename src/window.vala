@@ -49,11 +49,11 @@ namespace Vulcan
 			
 			this.config = new Config(this.root.consts);
 			this.config.setProperty("line-numbers", "true");
+			this.config.setProperty("text-wrap", "false");
 			this.config.setProperty("scheme", "classic");
 			this.config.setProperty("show-terminal", "false");
 			this.config.setProperty("show-sidebar", "false");
 			this.config.setProperty("show-settingsbar", "false");
-			this.config.setProperty("show-sidebar", "false");
 		
 			this.set_size_request(this.root.consts.min_width, this.root.consts.min_height);
 			this.set_default_size(this.root.consts.default_width, this.root.consts.default_height);

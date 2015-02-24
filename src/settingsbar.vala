@@ -29,6 +29,7 @@ namespace Vulcan
 		
 		public DarkThemeSwitchRow dark_switch_row;
 		public LineNumbersSwitchRow line_switch_row;
+		public TextWrapSwitchRow text_wrap_row;
 		public SourceSchemeRow source_scheme_row;
 		public ShowTerminalSwitchRow terminal_switch_row;
 		
@@ -55,6 +56,9 @@ namespace Vulcan
 			
 			this.line_switch_row = new LineNumbersSwitchRow(this);
 			this.list_box.add(this.line_switch_row);
+			
+			this.text_wrap_row = new TextWrapSwitchRow(this);
+			this.list_box.add(this.text_wrap_row);
 			
 			this.source_scheme_row = new SourceSchemeRow(this);
 			this.list_box.add(this.source_scheme_row);
@@ -222,6 +226,45 @@ namespace Vulcan
 		public bool setState(bool state)
 		{
 			this.window.config.setProperty("show-terminal", state.to_string());
+			return true;
+		}
+	}
+	
+	public class TextWrapSwitchRow : Gtk.Box
+	{
+		public Application root;
+		public SettingsBar mother;
+		public Window window;
+		
+		public Gtk.Label label;
+		public Gtk.Switch switcher;
+		
+		public TextWrapSwitchRow(SettingsBar mother)
+		{
+			this.root = mother.root;
+			this.mother = mother;
+			this.window = this.mother.window;
+			
+			this.orientation = Gtk.Orientation.HORIZONTAL;
+			this.set_margin_start(8);
+			this.set_margin_end(8);
+			this.set_margin_top(4);
+			this.set_margin_bottom(4);
+			this.set_spacing(8);
+			
+			this.label = new Gtk.Label("Text Wrapping");
+			this.add(this.label);
+			
+			this.switcher = new Gtk.Switch();
+			this.switcher.set_halign(Gtk.Align.END);
+			this.switcher.set_state(bool.parse(this.window.config.getProperty("text-wrap")));
+			this.switcher.state_set.connect(this.setState);
+			this.pack_end(this.switcher);
+		}
+		
+		public bool setState(bool state)
+		{
+			this.window.config.setProperty("text-wrap", state.to_string());
 			return true;
 		}
 	}
