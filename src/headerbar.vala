@@ -40,13 +40,26 @@ namespace Vulcan
 			this.new_window_button = new Gtk.Button();
 			this.new_window_button.set_image(new Gtk.Image.from_icon_name("text-editor-symbolic", Gtk.IconSize.MENU));
 			this.new_window_button.clicked.connect(this.newWindowButtonClicked);
-			this.new_window_button.set_tooltip_text("Open a new window");
+			this.new_window_button.set_tooltip_text("Open a new window [Ctrl+W]");
 			this.pack_start(this.new_window_button);
 			
 			this.settings_button = new Gtk.ToggleButton();
+			this.settings_button.set_tooltip_text("Toggle the settings bar visibility [Ctrl+P]");
 			this.settings_button.set_image(new Gtk.Image.from_icon_name("open-menu-symbolic", Gtk.IconSize.MENU));
 			this.settings_button.clicked.connect(this.settingsBarButtonClicked);
 			this.pack_end(this.settings_button);
+			
+			this.window.config.dataChanged.connect(this.dataWindowChanged);
+		}
+		
+		public void dataWindowChanged(string name, string data)
+		{
+			switch (name)
+			{
+				case ("show-settingsbar"):
+					this.settings_button.set_active(bool.parse(data));
+					break;
+			}
 		}
 		
 		public void settingsBarButtonClicked()

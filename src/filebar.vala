@@ -45,21 +45,21 @@ namespace Vulcan
 			
 			this.new_button = new Gtk.Button();
 			this.new_button.set_relief(Gtk.ReliefStyle.NONE);
-			this.new_button.set_tooltip_text("Create a new file");
+			this.new_button.set_tooltip_text("Create a new file [Ctrl+N]");
 			this.new_button.set_image(new Gtk.Image.from_icon_name("document-new-symbolic", Gtk.IconSize.MENU));
 			this.new_button.clicked.connect(this.newFileButtonClicked);
 			this.add(this.new_button);
 			
 			this.open_button = new Gtk.Button();
 			this.open_button.set_relief(Gtk.ReliefStyle.NONE);
-			this.open_button.set_tooltip_text("Open an existing file");
+			this.open_button.set_tooltip_text("Open an existing file [Ctrl+O]");
 			this.open_button.set_image(new Gtk.Image.from_icon_name("document-open-symbolic", Gtk.IconSize.MENU));
 			this.open_button.clicked.connect(this.openFileButtonClicked);
 			this.add(this.open_button);
 			
 			this.save_button = new Gtk.Button();
 			this.save_button.set_relief(Gtk.ReliefStyle.NONE);
-			this.save_button.set_tooltip_text("Save the current file");
+			this.save_button.set_tooltip_text("Save the current file [Ctrl+S]");
 			this.save_button.set_image(new Gtk.Image.from_icon_name("document-save-symbolic", Gtk.IconSize.MENU));
 			this.save_button.clicked.connect(this.saveFileButtonClicked);
 			this.add(this.save_button);
@@ -77,7 +77,7 @@ namespace Vulcan
 			
 			this.sidebar_button = new Gtk.Button();
 			this.sidebar_button.set_relief(Gtk.ReliefStyle.NONE);
-			this.sidebar_button.set_tooltip_text("Toggle the sidebar visibility");
+			this.sidebar_button.set_tooltip_text("Toggle the sidebar visibility [Ctrl+K]");
 			this.sidebar_button.clicked.connect(this.sideBarButtonClicked);
 			this.sidebar_button.set_image(new Gtk.Image.from_icon_name("pane-hide-symbolic", Gtk.IconSize.MENU));
 			this.add(this.sidebar_button);
@@ -122,7 +122,7 @@ namespace Vulcan
 				if (this.window.source_stack.getCurrentTab().unsaved)
 				{
 					this.save_button.override_background_color(Gtk.StateFlags.NORMAL, {1.0, 0.25, 0.0, 0.4});
-					this.save_button.set_tooltip_text("Save the current file (currently unsaved)");
+					this.save_button.set_tooltip_text("Save the current file (currently unsaved) [Ctrl+S]");
 				}
 				else
 				{

@@ -57,7 +57,7 @@ namespace Vulcan
 		
 			this.set_size_request(this.root.consts.min_width, this.root.consts.min_height);
 			this.set_default_size(this.root.consts.default_width, this.root.consts.default_height);
-			this.destroy.connect(this.close);
+			this.destroy.connect(this.quit);
 		
 			this.header_bar = new HeaderBar(this);
 			//this.add(this.header_bar);
@@ -115,9 +115,12 @@ namespace Vulcan
 			
 			//All created, now show it
 			this.show_all();
+			
+			this.key_press_event.connect(this.pressKey);
+                    
 		}
 		
-		public void close()
+		public void quit()
 		{
 			this.root.windows.remove(this);
 			this.root.close();
@@ -199,6 +202,56 @@ namespace Vulcan
 		public void newFile()
 		{
 			this.source_stack.addTab(null);
+		}
+		
+		public bool pressKey(Gdk.EventKey key)
+		{
+			//Thanks donadigo. Saved me a few minutes reading documentation :-)
+			if((key.state & Gdk.ModifierType.CONTROL_MASK) != 0)
+			{                  
+				switch (key.keyval)
+				{
+					case Gdk.Key.@q:
+						this.quit();
+						break;     
+					case Gdk.Key.@n:
+						this.newFile();
+						break;
+					case Gdk.Key.@w:
+						this.root.addWindow();
+						break;
+					case Gdk.Key.@o:
+						this.openFileWithDialog();
+						break;  
+					case Gdk.Key.@s:
+						{
+							//If shift is held, make it save as
+							if (this.source_stack.getCurrentTab() != null)
+							{
+								this.source_stack.getCurrentTab().save();
+							}
+						}
+						break;
+					case Gdk.Key.@k:
+						{
+							if (this.window.config.getProperty("show-sidebar") == "false")
+								this.window.config.setProperty("show-sidebar", "true");
+							else
+								this.window.config.setProperty("show-sidebar", "false");
+						} 
+						break;
+					case Gdk.Key.@p:
+						{
+							if (this.window.config.getProperty("show-settingsbar") == "false")
+								this.window.config.setProperty("show-settingsbar", "true");
+							else
+								this.window.config.setProperty("show-settingsbar", "false");
+						}
+						break;    
+				}
+			}
+			
+			return false;
 		}
 	}
 }
