@@ -188,7 +188,7 @@ namespace Vulcan
 				case ("text-wrap"):
 					{
 						if (bool.parse(data))
-							this.source_view.set_wrap_mode(Gtk.WrapMode.WORD);
+							this.source_view.set_wrap_mode(Gtk.WrapMode.WORD_CHAR);
 						else
 							this.source_view.set_wrap_mode(Gtk.WrapMode.NONE);
 					}

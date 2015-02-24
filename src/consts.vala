@@ -21,9 +21,12 @@ namespace Vulcan
 	public class Consts : Object
 	{
 		public string name = "Vulcan";
+		public string smallname = "vulcan";
 		public string comment = "A Gtk app to edit your text files";
 		public int[] version = {0, 1, 0};
 		public string version_string;
+		public string copyright = "Copyright \u00A9 2015 Barry Smith";
+		public string[] authors = {"Barry Smith <barry.of.smith@gmail.com>"};
 	
 		public int min_width = 600;
 		public int min_height = 400;

@@ -50,7 +50,7 @@ namespace Vulcan
 			this.config = new Config(this.root.consts);
 			this.config.setProperty("line-numbers", "true");
 			this.config.setProperty("text-wrap", "false");
-			this.config.setProperty("scheme", "classic");
+			this.config.setProperty("scheme", "solarized-dark");
 			this.config.setProperty("show-terminal", "false");
 			this.config.setProperty("show-sidebar", "false");
 			this.config.setProperty("show-settingsbar", "false");
