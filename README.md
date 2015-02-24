@@ -17,8 +17,9 @@ We'd prefer Vulcan's development to be guided by it's users - you. If you have a
 - Opening (multiple) plaintext files
 - Saving (including Save As) plaintext files
 - Edit detection using string hashing
-- Basic theming
+- Basic theming / configuration
 - Smooth, animated UI
+- Keyboard shortcuts for quick access to functionality
 
 However, in addition it also aims to provide a range of tools helpful to developers including:
 
