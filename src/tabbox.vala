@@ -63,6 +63,10 @@ namespace Vulcan
 			this.add(this.scrolled_window);
 			
 			this.source_view = new Gtk.SourceView();
+			if (bool.parse(this.window.config.getProperty("text-wrap")))
+				this.source_view.set_wrap_mode(Gtk.WrapMode.WORD);
+			else
+				this.source_view.set_wrap_mode(Gtk.WrapMode.NONE);
 			this.source_view.editable = true;
 			this.source_view.cursor_visible = true;
 			this.source_view.set_show_line_numbers(bool.parse(this.window.config.getProperty("line-numbers")));
