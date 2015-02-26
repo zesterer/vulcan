@@ -57,7 +57,7 @@ namespace Vulcan
 		
 			this.set_size_request(this.root.consts.min_width, this.root.consts.min_height);
 			this.set_default_size(this.root.consts.default_width, this.root.consts.default_height);
-			this.destroy.connect(this.quit);
+			this.destroy.connect(this.quitNow);
 		
 			this.header_bar = new HeaderBar(this);
 			//this.add(this.header_bar);
@@ -120,7 +120,7 @@ namespace Vulcan
                     
 		}
 		
-		public void quit()
+		public void quitNow()
 		{
 			this.root.windows.remove(this);
 			this.root.close();
@@ -212,7 +212,7 @@ namespace Vulcan
 				switch (key.keyval)
 				{
 					case Gdk.Key.@q:
-						this.quit();
+						this.quitNow();
 						break;     
 					case Gdk.Key.@n:
 						this.newFile();

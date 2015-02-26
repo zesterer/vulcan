@@ -275,12 +275,40 @@ namespace Vulcan
 			this.window.source_stack.switchTo(this.window.source_stack.getCurrentTab());
 		}
 		
-		public void close()
+		public bool canClose()
 		{
-			this.sidebar_tab_row.mother.list_box.remove(this.sidebar_tab_row.parent);
-			this.sidebar_tab_row.destroy();
-			this.mother.tabs.remove(this);
-			this.destroy();
+			if (this.unsaved && this.text_buffer.text.length > 0)
+			{
+				string msg = "The file '" + this.filename + "' is not saved. Are you sure you wish to close without saving?";
+				Gtk.MessageDialog message_dialog = new Gtk.MessageDialog(this.window, Gtk.DialogFlags.MODAL, Gtk.MessageType.WARNING, Gtk.ButtonsType.OK_CANCEL, msg);
+				message_dialog.set_title("Unsaved File");
+				
+				int response = message_dialog.run();
+				
+				message_dialog.destroy();
+				
+				if (response != Gtk.ResponseType.OK)
+				{
+					return false;
+				}
+			}
+			
+			return true;
+		}
+		
+		public bool close(bool force = false)
+		{
+			bool can_close = this.canClose();
+			
+			if (can_close || force)
+			{
+				this.sidebar_tab_row.mother.list_box.remove(this.sidebar_tab_row.parent);
+				this.sidebar_tab_row.destroy();
+				this.mother.tabs.remove(this);
+				this.destroy();
+			}
+			
+			return can_close;
 		}
 	}
 }

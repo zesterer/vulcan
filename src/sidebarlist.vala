@@ -82,13 +82,18 @@ namespace Vulcan
 			this.close_button.set_relief(Gtk.ReliefStyle.NONE);
 			this.close_button.override_background_color(Gtk.StateFlags.NORMAL, {1.0, 1.0, 1.0, 0.05});
 			this.close_button.set_image(new Gtk.Image.from_icon_name("window-close-symbolic", Gtk.IconSize.BUTTON));
-			this.close_button.clicked.connect(this.owner.close);
+			this.close_button.clicked.connect(this.closeClicked);
 			this.pack_end(this.close_button);
 			
 			this.mother.list_box.add(this);
 			this.show_all();
 			
 			this.mother.list_box.row_selected.connect(this.clickSelected);
+		}
+		
+		public void closeClicked()
+		{
+			this.owner.close();
 		}
 		
 		public void update()
