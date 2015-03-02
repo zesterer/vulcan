@@ -26,6 +26,9 @@ namespace Vulcan
 		
 		public Config config;
 		
+		//public Gtk.Overlay find_overlay;
+		//public Gtk.Revealer find_revealer;
+		
 		public Gtk.ScrolledWindow scrolled_window;
 		public Gtk.SourceView source_view;
 		public Gtk.SourceBuffer text_buffer;
@@ -55,6 +58,8 @@ namespace Vulcan
 			this.file = file;
 			
 			this.config = new Config(this.root.consts);
+			
+			
 			
 			this.scrolled_window = new Gtk.ScrolledWindow(null, null);
 			this.scrolled_window.set_hexpand(true);
@@ -119,6 +124,7 @@ namespace Vulcan
 			//Get any updates from the window's config
 			this.window.config.dataChanged.connect(this.dataWindowChanged);
 			this.unsavedChanged.connect(this.window.filebar.update);
+			this.unsavedChanged();
 			
 			this.show_all();
 			

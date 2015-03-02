@@ -24,6 +24,11 @@ namespace Vulcan
 		public Window mother;
 		public Window window;
 		
+		public Gtk.Box title_box;
+		public Gtk.Button title_button;
+		public FileInfoPopover title_popover;
+		public Gtk.Button syntax_button;
+		
 		public Gtk.Button new_window_button;
 		public Gtk.ToggleButton settings_button;
 	
@@ -32,10 +37,26 @@ namespace Vulcan
 			this.root = mother.root;
 			this.mother = mother;
 			this.window = this.mother.window;
-		
-			this.set_title(this.root.consts.name);
+			
 			this.set_subtitle(this.root.consts.comment);
 			this.set_show_close_button(true);
+			
+			this.title_box = new Gtk.Box(Gtk.Orientation.HORIZONTAL, 0);
+			this.title_box.height_request = 32;
+			this.title_box.get_style_context().add_class("linked");
+			this.set_custom_title(this.title_box);
+			
+			this.title_button = new Gtk.Button();
+			this.title_box.add(this.title_button);
+			
+			this.title_popover = new FileInfoPopover(this, this.title_button);
+			this.title_button.clicked.connect(this.title_popover.toggleVisible);
+			
+			this.syntax_button = new Gtk.Button();
+			this.title_box.add(this.syntax_button);
+			
+			this.setTitle(this.root.consts.name);
+			this.setSyntax("None");
 			
 			this.new_window_button = new Gtk.Button();
 			this.new_window_button.set_image(new Gtk.Image.from_icon_name("text-editor-symbolic", Gtk.IconSize.MENU));
@@ -71,27 +92,47 @@ namespace Vulcan
 			this.root.addWindow();
 		}
 		
+		public void setTitle(string title)
+		{
+			this.title_button.set_label(title);
+		}
+		
+		public void setSyntax(string syntax)
+		{
+			this.syntax_button.set_label(syntax);
+		}
+		
+		public void setSubtitle(string subtitle)
+		{
+			this.title_button.set_label(subtitle);
+		}
+		
 		public void tabSwitched()
 		{
 			TabBox? tab = this.window.source_stack.getCurrentTab();
 			
 			if (tab == null)
 			{
-				this.set_title(this.root.consts.name);
+				this.setTitle(this.root.consts.name);
+				this.setSyntax("None");
 				this.set_subtitle(this.root.consts.comment);
 			}
 			else
 			{
 				string title = tab.filename;
+				string syntax = "None";
 				if (tab.language != null)
-					title += " [" + tab.language + "]";
+					syntax = tab.language;
 				
-				this.set_title(title);
+				this.setTitle(title);
+				this.setSyntax(syntax);
 				if (tab.file == null)
 					this.set_subtitle("Unknown location");
 				else
 					this.set_subtitle(tab.file.get_path());
 			}
+			
+			this.title_popover.update();
 		}
 	}
 }

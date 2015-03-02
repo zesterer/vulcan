@@ -28,6 +28,7 @@ src/terminal.vala \
 src/sidebarlist.vala \
 src/config.vala \
 src/notabbox.vala \
+src/fileinfo.vala \
 #-X -fsanitize=address \
 #Uncomment the line below to allow debugging
 

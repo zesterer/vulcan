@@ -122,9 +122,14 @@ namespace Vulcan
 		
 		public void quitNow()
 		{
-			this.root.windows.remove(this);
-			this.root.close();
-			this.destroy();
+			bool can_close = true;
+			
+			if (can_close)
+			{
+				this.root.windows.remove(this);
+				this.root.close();
+				this.destroy();
+			}
 		}
 		
 		public void showSideBar(bool show)

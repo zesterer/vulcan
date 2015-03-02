@@ -89,6 +89,12 @@ namespace Vulcan
 			this.show_all();
 			
 			this.mother.list_box.row_selected.connect(this.clickSelected);
+			this.owner.unsavedChanged.connect(this.unsavedChanged);
+		}
+		
+		public void unsavedChanged()
+		{
+			
 		}
 		
 		public void closeClicked()
