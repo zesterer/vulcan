@@ -9,7 +9,7 @@ A minimalistic text editor designed for both ordinary use and software developme
 
 ##What is Vulcan?
 
-Vulcan is the next incarnation of the Journal text editor (version 1.0 seen here: http://www.github.com/solus-project/journal/). Originally named JournalNext, we've since taken the decision to rename the project 'Vulcan' and make it independent from the Evolve OS project. It aims to be fast, minimalist on first use, and provides the following basic features:
+Vulcan is the next incarnation of the Journal text editor (version 1.0.1 seen here: http://www.github.com/solus-project/journal/). Originally named JournalNext, we've since taken the decision to rename the project 'Vulcan' and make it independent from the Solus project. It aims to be fast, minimalist on first use, and provides the following basic features:
 
 We'd prefer Vulcan's development to be guided by it's users - you. If you have any suggestions for improvements, new features or you've found a bug, we strongly urge you to report it in the issues section.
 
