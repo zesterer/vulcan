@@ -1,5 +1,5 @@
 ##Please Note That Vulcan Is Currently In Development
-##Please ALSO Note That Vulcan is Being Rewritten From The Ground-Up. Due To This Fact, Vulcan Will Not Receive Github Updates For A Week Or Two. THIS PROJECT IS NOT DEAD!
+##Vulcan development is currently postponed for about 2 months for personal reasons as of this edit.
 
 #Vulcan
 
