@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2018 Joshua Barretto <joshua.s.barretto@gmail.com> -->
+<component type="desktop">
+  <id>com.github.zesterer.vulcan.desktop</id>
+  <metadata_license>CC0</metadata_license>
+  <name>Vulcan</name>
+  <summary>A lightweight text editor for power users</summary>
+  <description>
+    <p>Vulcan is a lightweight, practical text editor for power users. It aims to improve productivity through innovative UI design while integrating well into existing desktop environments.</p>
+  </description>
+</component>

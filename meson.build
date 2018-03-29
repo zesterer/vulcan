@@ -1,4 +1,13 @@
-project('vulcan', ['vala', 'c'])
+project(
+	'com.github.zesterer.vulcan',
+	['vala', 'c'],
+	version: '0.1.0',
+)
+
+gnome = import('gnome')
+i18n = import('i18n')
+
+add_global_arguments('-DGETTEXT_PACKAGE="@0@"'.format(meson.project_name()), language: 'c')
 
 deps = [
 	dependency('glib-2.0'),
@@ -6,17 +15,15 @@ deps = [
 	dependency('gtk+-3.0'),
 	dependency('gtksourceview-3.0'),
 	dependency('vte-2.91'),
-	dependency('pango'),
 ]
-
-add_project_arguments([
-	'--define', 'HAVE_VTE291'
-], language: 'vala')
 
 subdir('src')
 
 executable(
-	'vulcan',
+	meson.project_name(),
 	src,
 	dependencies: deps,
+	install: true,
 )
+
+subdir('data')

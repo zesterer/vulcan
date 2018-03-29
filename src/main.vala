@@ -22,7 +22,6 @@ namespace vulcan {
 				application_id: "com.github.zesterer.vulcan",
 				flags: ApplicationFlags.FLAGS_NONE
 			);
-			stdout.printf("Hello, World!\n");
 		}
 
 		protected override void activate() {

@@ -17,9 +17,16 @@
 
 namespace vulcan {
 	public class HeaderBar : Gtk.HeaderBar {
+		Gtk.Button nwin_button;
 		public HeaderBar() {
 			this.set_show_close_button(true);
 			this.title = "Vulcan";
+			this.subtitle = "unnamed.txt";
+
+			this.nwin_button = new Gtk.Button();
+			this.nwin_button.set_image(new Gtk.Image.from_icon_name("text-editor-symbolic", Gtk.IconSize.MENU));
+			this.nwin_button.set_tooltip_text("Open a new window");
+			this.pack_start(this.nwin_button);
 		}
 	}
 }
