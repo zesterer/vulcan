@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Vulcan
+GenericName=Text Editor
+Comment=A lightweight text editor for power users
+Categories=Development;Office;Utility;IDE;TextTools;TextEditor;GNOME;
+Keywords=Vulcan;Text;Editor;Development;Code;
+Exec=com.github.zesterer.vulcan
+Icon=text-editor
+Terminal=false
+Type=Application

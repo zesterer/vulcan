@@ -1,4 +1,4 @@
-// file : headerbar.vala
+// file : mainwin.vala
 //
 // Copyright (C) 2018  Joshua Barretto <joshua.s.barretto@gmail.com>
 //
@@ -16,10 +16,21 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 namespace vulcan {
-	public class HeaderBar : Gtk.HeaderBar {
-		public HeaderBar() {
-			this.set_show_close_button(true);
-			this.title = "Vulcan";
+	public class MainWin : Gtk.ApplicationWindow {
+		HeaderBar header_bar;
+		Gtk.Paned main_paned;
+		public MainWin(Gtk.Application app) {
+			Object(application: app);
+			this.set_default_size(640, 480);
+
+			this.header_bar = new HeaderBar();
+			this.set_titlebar(this.header_bar);
+
+			this.main_paned = new Gtk.Paned(Gtk.Orientation.HORIZONTAL);
+			this.add(this.main_paned);
+
+			this.main_paned.add1(new Gtk.Label("L"));
+			this.main_paned.add2(new Gtk.Label("R"));
 		}
 	}
 }
