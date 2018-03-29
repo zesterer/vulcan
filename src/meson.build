@@ -1,0 +1,17 @@
+src = files([
+	'main.vala',
+	'config.vala',
+	'dynamiclist.vala',
+	'fileinfo.vala',
+	'notabbox.vala',
+	'sidebarlist.vala',
+	'sourcestack.vala',
+	'terminal.vala',
+	'consts.vala',
+	'filebar.vala',
+	'headerbar.vala',
+	'settingsbar.vala',
+	'sidebar.vala',
+	'tabbox.vala',
+	'window.vala',
+])
