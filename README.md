@@ -1,7 +1,6 @@
-##Please Note That Vulcan Is Currently In Development
-##Vulcan development is currently postponed for about 2 months for personal reasons as of this edit.
+# Note: Vulcan is no longer under active development. PRs are still accepted.
 
-#Vulcan
+# Vulcan
 
 A minimalistic text editor designed for both ordinary use and software development.
 
