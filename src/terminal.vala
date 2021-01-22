@@ -37,25 +37,15 @@ namespace Vulcan
 			
 			try
 			{
-#if HAVE_VTE291
 				this.spawn_sync(Vte.PtyFlags.DEFAULT, null, {Vte.get_user_shell()}, null, SpawnFlags.SEARCH_PATH, null, out this.pid);
-#else
-				this.fork_command_full(Vte.PtyFlags.DEFAULT, null, {Vte.get_user_shell()}, null, SpawnFlags.SEARCH_PATH, null, out this.pid);
-#endif
 			}
 			catch (Error error)
 			{
 				this.root.consts.output(error.message);
 			}
 
-#if ! HAVE_VTE291
-			this.background_transparent = true;
-			this.background_opacity = 1.0;
-			this.set_color_background_rgba({0.15, 0.15, 0.15, 1.0});
-#else
 			Gdk.RGBA background = { 0.15, 0.15, 0.15, 1.0};
 			this.set_color_background(background);
-#endif
 		}
 	}
 }

@@ -6,7 +6,7 @@ A minimalistic text editor designed for both ordinary use and software developme
 
 [![Click to view YouTube video](https://raw.githubusercontent.com/zesterer/vulcan/master/misc/screenshot.png)](https://www.youtube.com/watch?v=is2f3xVIvFM)
 
-##What is Vulcan?
+## What is Vulcan?
 
 Vulcan is the next incarnation of the Journal text editor (version 1.0.1 seen here: http://www.github.com/solus-project/journal/). Originally named JournalNext, we've since taken the decision to rename the project 'Vulcan' and make it independent from the Solus project. It aims to be fast, minimalist on first use, and provides the following basic features:
 
@@ -28,25 +28,23 @@ However, in addition it also aims to provide a range of tools helpful to develop
 - Built-in VTE Terminal
 - Line numbering
 
-##Why not another mainstream text editor?
+## Why not another mainstream text editor?
 
 Vulcan has both unique features and a unique emphasis on design. Widget elements are smoothly animated, and the interface is designed to be intuitive and self-explanatory. It contains many useful features for more advanced tasks, but emphasises simplicity and versatility. Vulcan's development is largely user-orientated.
 
-##How can I build Vulcan?
+## How can I build Vulcan?
 
 At the moment, Vulcan doesn't have a proper build system and uses a little BASH script for compilation. To compile Vulcan, execute these commands:
 
-`git clone https://github.com/zesterer/Vulcan`
+```
+git clone https://github.com/zesterer/Vulcan
 
-`cd Vulcan`
+meson build
+ninja -C build
+ninja -C build install
+```
 
-`sh compile.sh`
-
-To run Vulcan, execute:
-
-`./Vulcan`
-
-##Dependencies
+## Dependencies
 
 Vulcan depends on various libraries:
 
@@ -58,7 +56,7 @@ Vulcan depends on various libraries:
 - Gio
 - Vala
 
-##Planned Features
+## Planned Features
 
 Please note that this list is subject to change.
 
@@ -72,7 +70,7 @@ Please note that this list is subject to change.
 - Keyboard shortcuts
 - Drop-down language chooser
 
-##User-Suggested (Potential) Wishlist
+## User-Suggested (Potential) Wishlist
 
 - Return to popover settings?
 - Optional horizontal tab bar
@@ -82,7 +80,7 @@ Please note that this list is subject to change.
 
 Got any more ideas? Suggest them in the issues section!
 
-##Credits
+## Credits
 
 Vulcan is developed by Ryan Sipes & Barry Smith.
 All code within this repository is licensed under the GPL 2.0 software license unless otherwise specified.
